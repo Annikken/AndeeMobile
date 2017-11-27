@@ -50,38 +50,48 @@ Function Definitions
 /*
 Functions
 */
+class AndeeMobileClass
+{
+	public:	
+	AndeeMobileClass();
+	
+	//This function has to be used everytime a new sketch for the Andee Mobile is made. This function initialises the pins used for the Andee Mobile
+	void setup();
 
-//This function has to be used everytime a new sketch for the Andee Mobile is made. This function initialises the pins used for the Andee Mobile
-void AndeeMobileSetup();
+	//This function moves the Andee Mobile forward at a specified speed. Speed is from 0 to 255.
+	void moveForward(int);
 
-//This function moves the Andee Mobile forward at a specified speed. Speed is from 0 to 255.
-void moveForward(int);
+	//This function moves the Andee Mobile backward at a specified speed. Speed is from 0 to 255.
+	void moveBackward(int);
 
-//This function moves the Andee Mobile backward at a specified speed. Speed is from 0 to 255.
-void moveBackward(int);
+	//This function turns the wheels to make the Andee Mobile to turn left
+	void turnLeft();
 
-//This function turns the wheels to make the Andee Mobile to turn left
-void turnLeft();
+	//This function turns the wheels to make the Andee Mobile to turn right
+	void turnRight();
 
-//This function turns the wheels to make the Andee Mobile to turn right
-void turnRight();
+	//This function turns the wheels back forward so that the Andee Mobile can continue moving forward or backward
+	void straight();
 
-//This function turns the wheels back forward so that the Andee Mobile can continue moving forward or backward
-void Straight();
+	//Turns on/off the headlights. Input is ON or OFF
+	void headlight(int);
 
-//Turns on/off the headlights. Input is ON or OFF
-void headlight(int);
+	//Turns on/off the taillights. Input is ON or OFF
+	void taillight(int);
 
-//Turns on/off the taillights. Input is ON or OFF
-void taillight(int);
+	//Turns on/off the Andee Mobile horn. Input is ON or OFF
+	void carHorn(int);
 
-//Turns on/off the Andee Mobile horn. Input is ON or OFF
-void carHorn(int);
+	//Turns the car door motor on/off. Needs around 3 to 4 seconds to get the door open or close. Input is ON or OFF
+	void carDoor(int);
 
-//Turns the car door motor on/off. Needs around 3 to 4 seconds to get the door open or close. Input is ON or OFF
-void carDoor(int);
+	//Turns off all pins used for the Andee Mobile
+	void cutPower();
+};
+extern AndeeMobileClass AndeeMobile;
 
-//Turns off all pins used for the Andee Mobile
-void cutPower();	
+
+
+	
 
 
