@@ -31,8 +31,8 @@ PIN DEFINITIONS
 #define motorLRDirectionPin 6  */
 
 
-#define headLightPin A4
-#define tailLightPin 5
+#define headLightPin 5
+#define tailLightPin A4
 #define carDoorPin  A5
 #define buzzerPin 4
 #define motorFBSpeedPin 10
