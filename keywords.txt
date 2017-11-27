@@ -1,0 +1,31 @@
+AndeeMobile	KEYWORD1
+
+
+
+
+AndeeMobileSetup	KEYWORD2
+
+moveForward	KEYWORD2
+
+moveBackward	KEYWORD2
+
+turnLeft	KEYWORD2
+
+turnRight	KEYWORD2
+
+Straight	KEYWORD2
+
+headlight	KEYWORD2
+
+taillight	KEYWORD2
+
+carHorn	KEYWORD2
+
+cutPower	KEYWORD2
+
+
+
+
+OFF	LITERAL1
+
+ON	LITERAL1
