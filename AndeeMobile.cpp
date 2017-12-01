@@ -20,7 +20,7 @@ This library is free software
 /*
 Functions
 */
-void AndeeMobileClass::setup()
+void AndeeMobileSetup()
 {	
 	pinMode(headLightPin,OUTPUT);
     pinMode(tailLightPin,OUTPUT);
@@ -41,39 +41,39 @@ void AndeeMobileClass::setup()
 	digitalWrite(motorLRDirectionPin,LOW);
 }
 
-void AndeeMobileClass::moveForward(int speed)//speed is from 0 to 255,time is in milliseconds
+void moveForward(int speed)//speed is from 0 to 255,time is in milliseconds
 {
 	analogWrite(motorFBSpeedPin,speed);
 	digitalWrite(motorFBDirectionPin,LOW);
 	//TODO time	
 }
 
-void AndeeMobileClass::moveBackward(int speed)
+void moveBackward(int speed)
 {
 	analogWrite(motorFBSpeedPin,speed);
 	digitalWrite(motorFBDirectionPin,HIGH);
 	//TODO time
 }
 
-void AndeeMobileClass::turnLeft()
+void turnLeft()
 {
 	digitalWrite(motorLRPin,HIGH);
 	digitalWrite(motorLRDirectionPin,LOW);
 }
 
-void AndeeMobileClass::turnRight()
+void turnRight()
 {
 	digitalWrite(motorLRPin,HIGH);
 	digitalWrite(motorLRDirectionPin,HIGH);
 }
 
-void AndeeMobileClass::straight()
+void straight()
 {
 	digitalWrite(motorLRPin,LOW);
 	digitalWrite(motorLRDirectionPin,LOW);
 }
 
-void AndeeMobileClass::headlight(int mode)
+void headlight(int mode)
 {
 	if(mode == OFF)
 	{
@@ -85,7 +85,7 @@ void AndeeMobileClass::headlight(int mode)
 	}	
 }
 
-void AndeeMobileClass::taillight(int mode)
+void taillight(int mode)
 {
 	if(mode == OFF)
 	{
@@ -97,7 +97,7 @@ void AndeeMobileClass::taillight(int mode)
 	}		
 }
 
-void AndeeMobileClass::carHorn(int mode)
+void carHorn(int mode)
 {
 	if(mode == OFF)
 	{
@@ -109,7 +109,7 @@ void AndeeMobileClass::carHorn(int mode)
 	}	
 }
 
-void AndeeMobileClass::carDoor(int mode)
+void carDoor(int mode)
 {
 	if(mode == OFF)
 	{
@@ -121,7 +121,7 @@ void AndeeMobileClass::carDoor(int mode)
 	}
 }
 
-void AndeeMobileClass::cutPower()
+void cutPower()
 {
 	digitalWrite(headLightPin,LOW);
 	digitalWrite(tailLightPin,LOW);
