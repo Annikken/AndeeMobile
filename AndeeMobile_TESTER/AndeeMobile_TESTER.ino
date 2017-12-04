@@ -7,7 +7,7 @@ AndeeHelper Back;
 AndeeHelper Left;
 AndeeHelper Right;
 AndeeHelper Stop;
-AndeeHelper carDoor;
+AndeeHelper carDoorButton;
 AndeeHelper Headlights;
 AndeeHelper Horn;
 
@@ -34,7 +34,7 @@ void setup() {
   Andee.clear();  // Clear the screen of any previous displays
   setInitialData();  // Define object types and their appearance
   
-  AndeeMobile.setup();
+  AndeeMobileSetup();
 
   makeUI = 1;
 }
@@ -52,7 +52,7 @@ void loop() {
         Left.update();
         Right.update();
         Stop.update();
-        carDoor.update();
+        carDoorButton.update();
         Headlights.update();
         Horn.update();
         makeUI = 0;
@@ -63,56 +63,56 @@ void loop() {
 
   if (Front.isPressed2()) {
     stateMoving = FORWARD;
-    AndeeMobile.straight();
-    AndeeMobile.moveForward(150);
+    straight();
+    moveForward(150);
   }
 
   if (Back.isPressed2()) {
-    AndeeMobile.straight();
-    AndeeMobile.moveBackward(150);
+    straight();
+    moveBackward(150);
   }
 
   if (Left.isPressed2()) {
-    AndeeMobile.turnLeft();
+    turnLeft();
   }
 
   if (Right.isPressed2()) {
-    AndeeMobile.turnRight();
+    turnRight();
   }
 
   if (Stop.isPressed2()) {
-    AndeeMobile.cutPower();
+    cutPower();
     stateMoving = STOPPED;
     
     Serial.println("stopping");
   }
 
   if (Horn.isPressed2()) {
-    AndeeMobile.carHorn(HIGH);
+    carHorn(HIGH);
     delay(400);
-    AndeeMobile.carHorn(LOW);
+    carHorn(LOW);
   }
 
   if (Headlights.isPressed2()) {
     if(stateLight == 0)
     {
-      AndeeMobile.headlight(ON);
-      AndeeMobile.taillight(ON);
+      headlight(ON);
+      taillight(ON);
       stateLight = 1;
     }
     else
     {
-      AndeeMobile.headlight(OFF);
-      AndeeMobile.taillight(OFF);
+      headlight(OFF);
+      taillight(OFF);
       stateLight = 0;
     }    
   }
 
-  if(carDoor.isPressed2())
+  if(carDoorButton.isPressed2())
   {
-    AndeeMobile.carDoor(ON);
+    carDoor(ON);
     delay(4000);
-    AndeeMobile.carDoor(OFF);
+    carDoor(OFF);
   }   
   delay(100);
 }
@@ -149,11 +149,11 @@ void setInitialData()
   Stop.requireAck(false);
   Stop.setTitle("Stop");
 
-  carDoor.setId(3);
-  carDoor.setType(BUTTON_IN);
-  carDoor.setCoord(210, 160, 200, 150);
-  carDoor.requireAck(false);
-  carDoor.setTitle("Open/Close Door");
+  carDoorButton.setId(3);
+  carDoorButton.setType(BUTTON_IN);
+  carDoorButton.setCoord(210, 160, 200, 150);
+  carDoorButton.requireAck(false);
+  carDoorButton.setTitle("Open/Close Door");
 
   Headlights.setId(6);
   Headlights.setType(BUTTON_IN);
