@@ -13,7 +13,7 @@ turnLeft	KEYWORD2
 
 turnRight	KEYWORD2
 
-Straight	KEYWORD2
+straight	KEYWORD2
 
 headlight	KEYWORD2
 
