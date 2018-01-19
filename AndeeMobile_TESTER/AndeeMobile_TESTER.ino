@@ -31,6 +31,7 @@ void setup() {
   Serial.begin(9600);
   
   Andee.begin();  // Setup communication between Andee and Arduino
+  Andee.setName("AndeeMobile 01");
   Andee.clear();  // Clear the screen of any previous displays
   setInitialData();  // Define object types and their appearance
   
@@ -40,60 +41,62 @@ void setup() {
 }
 
 void loop() {  
-  Andee.checkButtons();
   if (stateConnected == 0)
   {
     if (Andee.isConnected() == 1) 
     {
       if (makeUI == 1) 
       {
-        Front.update();
-        Back.update();
-        Left.update();
-        Right.update();
-        Stop.update();
-        carDoorButton.update();
-        Headlights.update();
-        Horn.update();
-        makeUI = 0;
-        stateConnected = 1;
+        for(int b = 0; b < 3;b++)
+        {
+          Front.update();
+          Back.update();
+          Left.update();
+          Right.update();
+          Stop.update();
+          carDoorButton.update();
+          Headlights.update();
+          Horn.update();
+          makeUI = 0;
+          stateConnected = 1;
+        }
       }
     }
   }
 
-  if (Front.isPressed2()) {
+  if (Front.isPressed()) {
     stateMoving = FORWARD;
     straight();
     moveForward(150);
   }
 
-  if (Back.isPressed2()) {
+  if (Back.isPressed()) {
     straight();
     moveBackward(150);
   }
 
-  if (Left.isPressed2()) {
+  if (Left.isPressed()) {
     turnLeft();
   }
 
-  if (Right.isPressed2()) {
+  if (Right.isPressed()) {
     turnRight();
   }
 
-  if (Stop.isPressed2()) {
+  if (Stop.isPressed()) {
     cutPower();
     stateMoving = STOPPED;
     
     Serial.println("stopping");
   }
 
-  if (Horn.isPressed2()) {
+  if (Horn.isPressed()) {
     carHorn(HIGH);
     delay(400);
     carHorn(LOW);
   }
 
-  if (Headlights.isPressed2()) {
+  if (Headlights.isPressed()) {
     if(stateLight == 0)
     {
       headlight(ON);
@@ -108,7 +111,7 @@ void loop() {
     }    
   }
 
-  if(carDoorButton.isPressed2())
+  if(carDoorButton.isPressed())
   {
     carDoor(ON);
     delay(4000);
@@ -121,50 +124,58 @@ void setInitialData()
 {
   Front.setId(4);
   Front.setType(BUTTON_IN);
-  Front.setCoord(5, 5, 200, 150);
+  Front.setLocation(0, 1, ONE_THIRD);
   Front.requireAck(false);
   Front.setTitle("Forward");
+  Front.setColor(DARK_GREEN);
 
   Back.setId(5);
   Back.setType(BUTTON_IN);
-  Back.setCoord(210, 5, 200, 150);
+  Back.setLocation(2, 1, ONE_THIRD);
   Back.requireAck(false);
   Back.setTitle("Backward");
+  Back.setColor(DARK_GREEN);
   
   Left.setId(0);
   Left.setType(BUTTON_IN);
-  Left.setCoord(415, 5, 200, 150);
+  Left.setLocation(1, 0, HALF);
   Left.requireAck(false);
   Left.setTitle("Left");
+  Left.setColor(DARK_BLUE);
 
   Right.setId(1);
   Right.setType(BUTTON_IN);
-  Right.setCoord(620, 5 , 200, 150);
+  Right.setLocation(1, 1, HALF);
   Right.requireAck(false);
   Right.setTitle("Right");
+  Right.setColor(DARK_BLUE);
 
   Stop.setId(2);
   Stop.setType(BUTTON_IN);
-  Stop.setCoord(5, 160, 200, 150);
+  Stop.setLocation(3, 0, FULL);
   Stop.requireAck(false);
   Stop.setTitle("Stop");
+  Stop.setColor(RED);
 
   carDoorButton.setId(3);
-  carDoorButton.setType(BUTTON_IN);
-  carDoorButton.setCoord(210, 160, 200, 150);
+  carDoorButton.setType(CIRCLE_BUTTON);
+  carDoorButton.setLocation(2, 0, ONE_THIRD);
   carDoorButton.requireAck(false);
   carDoorButton.setTitle("Open/Close Door");
+  carDoorButton.setColor(DARK_ORANGE);
 
   Headlights.setId(6);
-  Headlights.setType(BUTTON_IN);
-  Headlights.setCoord(415, 160, 200, 150);
+  Headlights.setType(CIRCLE_BUTTON);
+  Headlights.setLocation(0, 0, ONE_THIRD);
   Headlights.requireAck(false);
   Headlights.setTitle("Lights");
+  Headlights.setColor(GOLD);
 
   Horn.setId(7);
-  Horn.setType(BUTTON_IN);
-  Horn.setCoord(620, 160, 200, 150);
+  Horn.setType(CIRCLE_BUTTON);
+  Horn.setLocation(0, 2, ONE_THIRD);
   Horn.requireAck(false);
   Horn.setTitle("Horn");
+  Horn.setColor(PURPLE);
 }
 
