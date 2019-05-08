@@ -31,7 +31,7 @@ void setup() {
   setInitialData(); // Define object types and their appearance
 }
 
-// This is the function meant to define the types and the apperance of
+// This is the function meant to define the types and the appearance of
 // all the objects on your smartphone
 void setInitialData()
 {
@@ -52,7 +52,7 @@ void setInitialData()
   slider.setCoord(5, 62, 90, 20);               // Set the location and size of your slider
   slider.setTitle("Slide me!");                 // Set slider title
   slider.setSliderMinMax(0, 100, 2);               // Set min to 0 and max to 100
-  slider.setSliderInitialValue(0);              // Set slider inital thumb position to 0
+  slider.setSliderInitialValue(0);              // Set slider initial thumb position to 0
   slider.setSliderNumIntervals(0);              // Set intervals to 0 for slider
   
 }

@@ -41,7 +41,7 @@ void setup()
   AndeeMobileSetup(); // Setup code for AndeeMobile
 }
 
-// This is the function meant to define the types and the apperance of
+// This is the function meant to define the types and the appearance of
 // all the objects on your smartphone
 void setInitialData()
 {
@@ -101,7 +101,7 @@ void loop() {
 }
 
 void loadUIOnConnect() {
-  if(connectionState == false) {              // if connection state is false, connection is uncomplete
+  if(connectionState == false) {              // if connection state is false, connection is incomplete
     if(Andee.isConnected() == true) {         // if Andee is connected
       if(makeUI == true) {                    // if makeUI is required
         drawUI();                             // draw UI onto the application
