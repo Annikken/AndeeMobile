@@ -115,7 +115,7 @@ void loop() {
     Serial.print("slider value: ");                             // print 'slider value:' in log
     Serial.println(movementSpeed);                              // print movementSpeed value in the nextline on log
     movementSpeed = (movementSpeed/100.0) * 225;                // convert moveSpeed value to the range that AndeeMobile is using
-    movementSpeed = movementSpeed > 255 ? 255 : movementSpeed;  // check if movementSpeed vaule is the speed range
+    movementSpeed = movementSpeed > 255 ? 255 : movementSpeed;  // check if movementSpeed value is the speed range
   }
 
   if (movementState == FORWARD) {                               // if movementState equal to FORWARD
@@ -152,7 +152,7 @@ void driftRight() {
 }
 
 void loadUIOnConnect() {                                        
-  if (stateConnected == 0) {                                    // if connection state is false, connection is uncomplete
+  if (stateConnected == 0) {                                    // if connection state is false, connection is incomplete
     if (Andee.isConnected() == 1)  {                            // if Andee is connected  
       if (makeUI == 1)  {                                       // if makeUI is required
         drawScreen();                                           // draw UI onto the application

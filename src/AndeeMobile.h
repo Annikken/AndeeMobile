@@ -51,7 +51,7 @@ Function Definitions
 Functions
 */
 	
-//This function has to be used everytime a new sketch for the Andee Mobile is made. This function initialises the pins used for the Andee Mobile
+//This function has to be used every time a new sketch for the Andee Mobile is made. This function initialises the pins used for the Andee Mobile
 void AndeeMobileSetup();
 
 //This function moves the Andee Mobile forward at a specified speed. Speed is from 0 to 255.
