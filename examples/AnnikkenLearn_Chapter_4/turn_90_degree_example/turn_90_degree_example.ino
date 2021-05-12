@@ -1,7 +1,7 @@
 /************************************************************
   [Annikken Andee with AndeeMobile]
   ================
-  90 degree example
+  Turn 90 degree example
 
   Check out our Resources section for more information and 
   ideas on what you can do with the Annikken Andee or the 
